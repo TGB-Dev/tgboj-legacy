@@ -31,7 +31,6 @@ a {
 
 img {
     max-width: 100%;
-
     // height: auto
 }
 
@@ -193,7 +192,7 @@ header {
 
         & > li > a > span {
             font-size: 13px;
-            height: 36px;
+            height: 43px;
             padding-top: 8px;
             display: block;
             white-space: nowrap;
@@ -218,7 +217,10 @@ header {
 }
 
 #nav-shadow {
+    position: absolute;
+    top: 56px;
     height: 3px;
+    width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
 }
 
@@ -237,12 +239,24 @@ header {
     right: 0;
 }
 
+#nav-background {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 56px;
+    background: $widget_black;
+}
+
 nav {
     position: relative;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    width: 100%;
+    max-width: 107em;
     margin: 0 auto;
     z-index: 500;
     text-align: left;
@@ -263,7 +277,7 @@ nav {
 
             &.home-nav-element a {
                 padding: 0;
-                height: 44px;
+                height: 56px;
 
                 &:hover {
                     border-bottom: none;
@@ -279,6 +293,10 @@ nav {
                 color: #FFF;
                 padding: 13px 7px;
                 height: 18px;
+                transition: border-bottom 200ms;
+                border-left: solid 5px transparent;
+                border-right: solid 5px transparent;
+                border-bottom: solid 0px transparent;
 
                 &:link {
                     color: #FFF;
@@ -286,13 +304,15 @@ nav {
 
                 &:hover {
                     color: #FFF;
-                    background: rgba(255, 255, 255, 0.25);
                     margin: 0;
+                    border-bottom: solid 5px $highlight_blue;
                 }
 
                 &.active {
                     color: #FFF;
                     background: $highlight_blue;
+                    border: solid 5px $highlight_blue;
+                    border-radius: 5px;
                 }
 
                 .nav-expand {
@@ -567,14 +587,14 @@ math {
 
 @media (max-width: 760px) {
     #navigation {
-        height: 36px;
+        height: 56px;
     }
 
     #navicon {
         transition-duration: 0.25s;
         display: block;
-        line-height: 26px;
-        font-size: 2em;
+        line-height: 46px;
+        font-size: 3em;
         color: #FFF;
         padding: 0 0.25em;
         margin: 4px 0.25em;
@@ -594,7 +614,7 @@ math {
         margin-left: 0;
         border-left: 4px solid $highlight_blue;
         position: fixed;
-        top: 36px;
+        top: 56px;
         background: $widget_black;
         bottom: 0;
         width: 8em;

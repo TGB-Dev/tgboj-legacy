@@ -11,6 +11,7 @@
     {% endif %}
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicons-->
+    
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
@@ -181,6 +182,9 @@
         <clipPath id="rating-clip"><circle cx="8" cy="8" r="7"/></clipPath>
     </defs>
 </svg>
+<div id="nav-background">
+    <div id="nav-shadow"></div>
+</div>
 <nav id="navigation" class="unselectable">
     <div id="nav-container">
         <a id="navicon" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
@@ -209,7 +213,7 @@
                     <li>
                         <a href="{{ url('user_page') }}">
                             <span>
-                                <img src="{{ gravatar(request.user, 32) }}" height="24" width="24">{# -#}
+                                <img src="{{ gravatar(request.user, 32) }}" height="36" width="36">{# -#}
                                 <span>
                                     {%- trans username=request.user.username -%}
                                         Hello, <b>{{ username }}</b>.
@@ -244,7 +248,6 @@
             {% endif %}
         </span>
     </div>
-    <div id="nav-shadow"></div>
 </nav>
 {% if request.in_contest %}
     <div id="contest-info">
