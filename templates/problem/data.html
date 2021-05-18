@@ -196,6 +196,39 @@
                 return false;
             });
 
+            $('a#fill-cases').click(function () {
+                var inFiles = [], outFiles = [];
+                for (var i = 0; i < window.valid_files.length; i++) {
+                    var name = window.valid_files[i].toLowerCase();
+                    if (name.endsWith(".in") || name.endsWith(".inp"))
+                        inFiles.push(window.valid_files[i]);
+                    if (name.endsWith(".out")) 
+                        outFiles.push(window.valid_files[i]);
+                }
+                if (!inFiles.length) {
+                    alert("No input/output files. Make sure your files' suffices are correct");
+                    return false;
+                }
+                if (inFiles.length != outFiles.length) {
+                    alert("The number of input files do not match the number of output files!");
+                    return false;
+                }
+                // add boxes
+                while ($total.val() < inFiles.length) $('a#add-case-row').click();
+                // fill cases
+                for (var i = 0; i < inFiles.length; i++)
+                    $("#id_cases-" + i + "-input_file").val(inFiles[i]).change();
+
+                for (var i = 0; i < outFiles.length; i++)
+                    $("#id_cases-" + i + "-output_file").val(outFiles[i]).change();
+                    
+                // add points
+                for (var i = 0; i < inFiles.length; i++) {
+                    $("#id_cases-" + i + "-points").val($("#points-each").val()).change();
+                }
+                return false;
+            });
+
             var oldIndex;
             $table.sortable({
                 containerSelector: 'table',
@@ -355,7 +388,20 @@
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ cases_formset.management_form }}
-        <table class="table">{{ data_form.as_table() }}</table>
+        <table class="table">
+            {{ data_form.as_table() }}
+            <th>
+                <label>Autofill testcases:</label>
+            </th>
+            <td>
+                <label for="points-each">Points per case:</label>
+                <input type="number" name="points-each" id="points-each" style="width: 4em">
+                <a id="fill-cases" href="#">
+                    <i class="fa fa-circle"></i>
+                    Fill testcases
+                </a>
+            </td>
+        </table>
         <div id="column-visible" data-problem="{{ problem.code }}">
             <strong>{{ _('Show columns:') }}</strong>
             <label>
@@ -435,8 +481,8 @@
             {% endfor %}
             </tbody>
         </table>
-        <input type="submit" value="{{ _('Submit!') }}" class="button">
         <a id="add-case-row" href="#"><i class="fa fa-plus"></i> {{ _('Add new case') }}</a>
+        <input type="submit" value="{{ _('Submit!') }}" class="button">
     </form>
     <div style="display: none" class="generator-args-editor"><textarea></textarea><a class="button">{{ _('Save') }}</a></div>
 {% endblock %}

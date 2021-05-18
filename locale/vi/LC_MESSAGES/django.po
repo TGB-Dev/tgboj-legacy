@@ -3259,6 +3259,14 @@ msgstr "Sự kiện"
 msgid "News"
 msgstr "Tin tức"
 
+#: templates/problem/quick-problem.html:92
+msgid "Quick Problem"
+msgstr "Tìm đề nhanh"
+
+#: templates/problem/quick-problem.html:92
+msgid "Get problem"
+msgstr "Lấy đề"
+
 #: templates/blog/list.html:106
 #, python-brace-format
 msgid "posted on {time}"

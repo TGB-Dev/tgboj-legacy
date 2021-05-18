@@ -73,6 +73,29 @@
                 $('.blog-content').hide();
                 $('.blog-sidebar').show();
             });
+            
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#category').select2().css({'visibility': 'visible'});
+            $('#types').select2({multiple: 1, placeholder: '{{ _('Filter by type...') }}'})
+                .css({'visibility': 'visible'});
+
+            $('#search').keypress(function (e) {
+                if (e.keyCode == 13)
+                    $('#random').click();
+            });
+
+            $('#random').click(function(e) {
+                var newLocation = location.protocol + '//' + location.host + location.pathname + "problems/random/?hide_solved=1";
+                newLocation += '&search=' + $('#search').val();
+                newLocation += '&category=' + $("#category").val()
+                for (var typeID of $('#types').val()) {
+                    newLocation += '&type=' + typeID;
+                }
+                location.href = newLocation;
+            });
         });
     </script>
 {% endblock %}
@@ -185,6 +208,8 @@
                 </div>
             {% endif %}
 
+            {% include "problem/quick-problem.html" %}
+
             <div class="blog-sidebox sidebox">
                 <h3>{{ _('Comment stream') }} <i class="fa fa-comments"></i></h3>
                 <div class="sidebox-content">
@@ -202,22 +227,6 @@
                         <a href="{{ url('comment_rss') }}"><span><i class="fa fa-rss"></i></span> RSS</a>
                         /
                         <a href="{{ url('comment_atom') }}">Atom</a>
-                    </span>
-                </div>
-            </div>
-            <div class="blog-sidebox sidebox">
-                <h3>{{ _('New problems') }} <i class="fa fa-puzzle-piece"></i>
-                </h3>
-                <div class="sidebox-content">
-                    <ul class="problem-list">
-                        {% for problem in new_problems %}
-                            <li><a href="{{ url('problem_detail', problem.code) }}">{{ problem.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                    <span class="rssatom">
-                        <a href="{{ url('problem_rss') }}"><span><i class="fa fa-rss"></i></span> RSS</a>
-                        /
-                        <a href="{{ url('problem_atom') }}">Atom</a>
                     </span>
                 </div>
             </div>

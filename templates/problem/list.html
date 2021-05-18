@@ -3,10 +3,6 @@
 {% block media %}
     <link rel="stylesheet" href="{{ static('libs/nouislider.min.css') }}">
     <noscript>
-        <style>#category, #types {
-            visibility: visible;
-        }
-        </style>
     </noscript>
     {% if not request.in_contest %}
         <style>
@@ -32,6 +28,11 @@
             }
         </style>
     {% endif %}
+    <style>
+        #category, #types {
+            visibility: visible;
+        }
+    </style>
 {% endblock %}
 
 {% block js_media %}

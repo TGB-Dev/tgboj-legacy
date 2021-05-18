@@ -1,0 +1,40 @@
+<div class="sidebox">
+    <h3>{{ _('Quick Problem') }} <i class="fa fa-search"></i>
+    </h3>
+    <div class="sidebox-content">
+        <form id="filter-form" name="form" action="" method="get">
+            <div>
+                <input id="search" type="text" name="search" value="{{ search_query or '' }}"
+                       placeholder="{{ _('Search problems...') }}">
+            </div>
+            <div class="filter-form-group">
+                <label for="category"><i>{{ _('Category') }}</i></label>
+                <select id="category" name="category">
+                    {% if category %}
+                        <option value="" selected="selected">{{ _('All') }}</option>
+                    {% else %}
+                        <option value="">{{ _('All') }}</option>{% endif %}
+                    <option disabled="disabled">---</option>
+                    {% for group in categories %}
+                        <option value="{{ group.id }}"{% if group.id == category %} selected{% endif %}>
+                            {{ group.full_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+                <div class="filter-form-group">
+                    <label for="type"><i>{{ _('Problem types') }}</i></label>
+                    <select id="types" name="type" multiple>
+                        {% for type in problem_types %}
+                            <option value="{{ type.id }}"{% if type.id in selected_types %} selected{% endif %}>
+                                {{ type.full_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            <div class="form-submit-group">
+                <a id="random" class="button">{{ _('Get problem') }}</a>
+            </div>
+        </form>
+    </div>
+</div>

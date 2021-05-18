@@ -8,7 +8,7 @@ from django.views.generic import ListView
 
 from judge.comments import CommentedDetailView
 from judge.models import BlogPost, Comment, Contest, Language, Problem, ProblemClarification, Profile, Submission, \
-    Ticket
+    Ticket, ProblemType, ProblemGroup
 from judge.utils.cachedict import CacheDict
 from judge.utils.diggpaginator import DiggPaginator
 from judge.utils.problems import user_completed_ids
@@ -95,6 +95,9 @@ class PostList(ListView):
             context['open_tickets'] = filter_visible_tickets(tickets, self.request.user)[:10]
         else:
             context['open_tickets'] = []
+
+        context['problem_types'] = ProblemType.objects.all()
+        context['categories'] = ProblemGroup.objects.all()
         return context
 
 
