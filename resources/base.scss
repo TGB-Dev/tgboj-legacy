@@ -698,9 +698,9 @@ math {
     position: relative;
     width: 56px;
     height: 42px;
-    background-color: #fff;
-    overflow: hidden;
+    background-color: transparent;
     border-radius: 5px;
+    overflow: hidden;
 
     div {
         position: absolute;
@@ -710,7 +710,6 @@ math {
         height: 100%;
         pointer-events: none;
         background-size: 56px 42px;
-        border-radius: 5px;
         transition: left 200ms;
 
         &:last-child {
@@ -720,6 +719,7 @@ math {
 
     &:hover {
         border: none;
+        
         div:last-child {
             left: 0;
         }
