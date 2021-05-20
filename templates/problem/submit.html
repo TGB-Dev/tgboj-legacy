@@ -6,6 +6,7 @@
     {% compress js %}
         <script type="text/javascript">
             $(function () {
+
                 function format(state) {
                     if (!state.id) return state.text; // optgroup
                     return state.text;
@@ -106,6 +107,17 @@
                     editor.setFontSize(14);
                     editor.setPrintMarginColumn(100);
                     editor.focus();
+                        
+                    // Import file
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var code = urlParams.get('code');
+                    if (code) {
+                        code = code.split(' ').join('+');
+                        code = atob(code);
+                        $('#id_source').val(code);
+                        window.previous_template = code;
+                        window.ace_source.getSession().setValue(code);
+                    }
                 });
 
                 $(window).resize(function () {
