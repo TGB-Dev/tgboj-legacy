@@ -46,6 +46,21 @@
 
 {% block content_js_media %}
     {% include "comments/media-js.html" %}
+    <script>
+        $(function() {
+            var fileInput = $('#submit-file');
+            fileInput.change(function() {
+                var file = fileInput.prop('files')[0];
+                var reader = new FileReader;
+                reader.readAsText(file);
+                reader.onload = function() {
+                    // Add language detection here
+
+                    location.href = location.protocol + '//' + location.host + location.pathname + '/submit/?code=' + btoa(reader.result);
+                }
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block title_row %}
@@ -98,8 +113,9 @@
     {% if request.user.is_authenticated and request.in_contest and submission_limit %}
         {% if submissions_left > 0 %}
             <a href="{{ url('problem_submit', problem.code) }}" class="unselectable button full">
-                {{ _('Submit solution') }}
+                {{ _('Code your submission') }}
             </a>
+            <input type="file" name="submit-file" id="submit-file" style="padding-top: 10px;">
             <div class="submissions-left">
                 {% trans trimmed counter=submissions_left %}
                     {{ counter }} submission left
@@ -108,13 +124,15 @@
                 {% endtrans %}
             </div>
         {% else %}
-            <a class="unselectable button full disabled">{{ _('Submit solution') }}</a>
+            <a class="unselectable button full disabled">{{ _('Code your submission') }}</a>
             <div class="no-submissions-left submissions-left">{{ _('0 submissions left') }}</div>
         {% endif %}
     {% else %}
         <a href="{{ url('problem_submit', problem.code) }}" class="unselectable button full">
-            {{ _('Submit solution') }}
+            {{ _('Code your submission') }}
         </a>
+        <div style="padding-top: 10px; text-align: center;">--- OR ---</div>
+        <input type="file" name="submit-file" id="submit-file" style="padding-top: 10px;">
     {% endif %}
 
     <hr style="padding-bottom: 0.3em">
