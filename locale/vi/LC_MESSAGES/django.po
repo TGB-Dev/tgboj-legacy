@@ -4055,6 +4055,9 @@ msgid ""
 "editorialist. <br><br> <b>Submitting an official solution before solving the "
 "problem yourself is a bannable offence.</b>"
 msgstr ""
+"Hãy nhớ rằng <b>chỉ</b> nên tham khảo hướng giải này khi không có ý tưởng, và <b>đừng copy-"
+"paste code từ đây</b>. Xin hãy tôn trọng người ra đề và người viết lời giải. <br><br> <b>Nộp"
+" một lời giải chính thức trước khi tự giải là một hành động có thể khiến bạn bị ban.</b> "
 
 #: templates/problem/editorial.html:27 templates/problem/problem.html:227
 msgid "Author:"
