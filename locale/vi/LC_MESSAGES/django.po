@@ -670,12 +670,12 @@ msgid "contest tags"
 msgstr "thẻ cuộc thi"
 
 #: judge/models/contest.py:61
-msgid "Hiển thị"
+msgid "Visible"
 msgstr "Có hiển thị"
 
 #: judge/models/contest.py:62
 msgid "Hidden for duration of contest"
-msgstr "Ẩ"
+msgstr "Ẩn"
 
 #: judge/models/contest.py:63
 msgid "Hidden for duration of participation"
