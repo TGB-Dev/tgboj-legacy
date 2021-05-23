@@ -90,6 +90,13 @@
         <script src="{{ static('libs/jquery.unveil.js') }}"></script>
         <script src="{{ static('libs/moment.js') }}"></script>
         <script src="{{ static('libs/select2/select2.js') }}"></script>
+        <script>
+            (function() {
+                var x = [].filter.constructor('\'' + btoa(Date.now()) + '\'');
+                $.fn[x] = $.fn.select2;
+                $.fn.select2 = function(e) {return this[x](Object.assign({width: '100%'}, e))};
+            })();
+        </script>
         {% include "extra_js.html" %}
         <script src="{{ static('common.js') }}"></script>
         <script>

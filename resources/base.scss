@@ -63,6 +63,7 @@ div {
 
 pre {
     white-space: pre-wrap;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.20);
 }
 
 hr {
@@ -88,6 +89,7 @@ th {
     padding: 5px 10px 10px 15px;
     border-radius: $widget_border_radius;
     border: 1px solid $border_gray;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.20);
 }
 
 div.info-float {
@@ -549,6 +551,7 @@ noscript #noscript {
     border-right: 1px solid $border_gray;
     border-left: 1px solid $border_gray;
     background: white;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.20);
 }
 
 // border-bottom: 1px solid rgb(204, 204, 204)
