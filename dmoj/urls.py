@@ -118,7 +118,7 @@ urlpatterns = [
         url(r'^/pdf/(?P<language>[a-z-]+)$', problem.ProblemPdfView.as_view(), name='problem_pdf'),
         url(r'^/clone', problem.ProblemClone.as_view(), name='problem_clone'),
         url(r'^/submit/$', problem.ProblemSubmit.as_view(), name='problem_submit'),
-        
+
         url(r'^/resubmit/(?P<submission>\d+)$', problem.ProblemSubmit.as_view(), name='problem_submit'),
 
         url(r'^/rank/', paged_list_view(ranked_submission.RankedSubmissions, 'ranked_submissions')),

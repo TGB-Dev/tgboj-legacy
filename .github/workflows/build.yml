@@ -52,4 +52,4 @@ jobs:
       - name: Install npm packages
         run: npm install -g sass postcss-cli postcss autoprefixer
       - name: Build style.css
-        run: sudo ./make_style.sh
+        run: ./make_style.sh

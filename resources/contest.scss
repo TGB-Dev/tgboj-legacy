@@ -202,6 +202,10 @@ form.contest-join-pseudotab {
         background: none;
         font-weight: 600;
         box-shadow: none;
+        
+        &:hover {
+            box-shadow: none;
+        }
     }
 }
 
