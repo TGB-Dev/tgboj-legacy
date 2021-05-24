@@ -98,10 +98,19 @@
                 $('img.unveil').unveil(200);
             });
         </script>
+        <script>
+            $(function() {
+                $('.time-remaining').each(function () {
+                    count_down($(this));
+                });
+            });
+        </script>
     {% endcompress %}
     {% block js_media %}{% endblock %}
     {% if request.in_contest %}
-        <script>$(function () {
+        <script>
+            $(function () {
+
             count_down($("#contest-time-remaining"));
 
             var selected = null,
@@ -337,6 +346,7 @@
           </form>
         </span>
     </footer>
+    {% include "contest/announcement.html" %}
 </div>
 </body>
 </html>

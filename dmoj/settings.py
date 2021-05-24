@@ -326,6 +326,7 @@ TEMPLATES = [
                 'judge.template_context.math_setting',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'judge.context_processors.get_new_contests',
             ],
             'autoescape': select_autoescape(['html', 'xml']),
             'trim_blocks': True,

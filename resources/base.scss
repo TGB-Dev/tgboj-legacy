@@ -728,3 +728,50 @@ math {
         }
     }
 }
+
+#announcement-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 501;
+}
+#announcement-container {
+    
+    width: 100%;
+    max-width: 50em;
+
+    .sidebox-content {
+        background: #fff;
+        padding: 0;
+        border: solid transparent;
+    }
+
+    .button {
+        width: fit-content;
+        margin: 5px;
+    }
+
+    .contest-list {
+        height: 25em;
+        overflow-y: auto;
+    }
+
+    .time-left {
+        text-align: left;
+        color: #777;
+        padding-top: 0.5em;
+    }
+
+    .contest-list .contest-block {
+        border-bottom: 2px solid #ccc;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+{% macro contest_head(contest) %}
+    {% spaceless %}
+        <a href="{{ url('contest_view', contest.key) }}" class="contest-list-title">
+            {{- contest.name -}}
+        </a>
+        <span class="contest-tags">
+            {% if not contest.is_visible %}
+                <span style="background-color: #000000; color: #ffffff" class="contest-tag">
+                    <i class="fa fa-eye-slash"></i> {{ _('hidden') }}
+                </span>
+            {% endif %}
+            {% if contest.is_organization_private %}
+                {% for org in contest.organizations.all() %}
+                    <span style="background-color: #cccccc" class="contest-tag">
+                        <a href="{{ org.get_absolute_url() }}" style="color: #000000">
+                            <i class="fa fa-lock"></i> {{ org.name }}
+                        </a>
+                    </span>
+                {% endfor %}
+            {% elif contest.is_private %}
+                <span style="background-color: #666666; color: #ffffff" class="contest-tag">
+                    <i class="fa fa-lock"></i> {{ _('private') }}
+                </span>
+            {% endif %}
+            {% if contest.is_rated %}
+                <span style="background-color: #e54c14; color: #ffffff" class="contest-tag">
+                    <i class="fa fa-bar-chart"></i> {{ _('rated') }}
+                </span>
+            {% endif %}
+            {% for tag in contest.tags.all() %}
+                <span style="background-color: {{ tag.color }}" class="contest-tag">
+                    <a href="{{ url('contest_tag', tag.name) }}"
+                       style="color: {{ tag.text_color }}"
+                       data-featherlight="{{ url('contest_tag_ajax', tag.name) }}">
+                        {{- tag.name -}}
+                    </a>
+                </span>
+            {% endfor %}
+        </span>
+    {% endspaceless %}
+{% endmacro %}
+
+{% macro time_left(contest) %}
+    <div class="time time-left">
+        {% if contest.time_limit %}
+            {{ contest.start_time|date(_("M j, Y, G:i")) }} -
+            {{ contest.end_time|date(_("M j, Y, G:i")) }}
+        {% else %}
+            {{ contest.start_time|date(_("M j, Y, G:i")) }}
+        {% endif %}
+        <br>
+        {% if contest.time_limit %}
+            {{ _('%(time_limit)s window', time_limit=contest.time_limit|timedelta('localized-no-seconds')) }}
+        {% else %}
+            {{ _('%(duration)s long', duration=contest.contest_window_length|timedelta('localized-no-seconds')) }}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% if new_contests %}
+    <div id="announcement-bg">
+        <div id="announcement-container" class="sidebox">
+            <h3>{{ _('Contest announcement') }} <i class="fa fa-trophy"></i></h3>
+            <div class="sidebox-content">
+                <div class="contest-list">
+                    {% for contest in new_contests %}
+                        <div class="contest-block">
+                            {{ contest_head(contest) }}
+                            {% if contest.start_time %}
+                                <br>
+                                {% if contest.time_before_start %}
+                                    <span class="time" onload="">{{ _('Starting in %(countdown)s.', countdown=contest.time_before_start|as_countdown) }}</span>
+                                {% endif %}
+                                {{ time_left(contest) }}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="#" class="button" id="close-announcement" onclick="$('#announcement-bg').css({'visibility': 'hidden'});">{{_('Close')}}</a>
+            </div>
+        </div>
+    </div>
+{% endif %}

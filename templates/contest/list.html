@@ -21,10 +21,6 @@
     <script src="{{ static('libs/featherlight/featherlight.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.time-remaining').each(function () {
-                count_down($(this));
-            });
-
             $('.contest-tag').find('a[data-featherlight]').featherlight();
 
             $('.join-warning').click(function () {
