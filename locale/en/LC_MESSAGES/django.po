@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-20 08:31+0000\n"
+"POT-Creation-Date: 2021-05-24 05:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dmoj/settings.py:364
+#: dmoj/settings.py:365
 msgid "English"
 msgstr ""
 
-#: dmoj/settings.py:365
+#: dmoj/settings.py:366
 msgid "Vietnamese"
 msgstr ""
 
-#: dmoj/urls.py:103 templates/base.html:210
+#: dmoj/urls.py:103 templates/base.html:219
 msgid "Home"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "username"
 msgstr ""
 
-#: judge/admin/contest.py:351 templates/base.html:287
+#: judge/admin/contest.py:351 templates/base.html:296
 msgid "virtual"
 msgstr ""
 
@@ -177,8 +177,8 @@ msgstr ""
 msgid "Summary"
 msgstr ""
 
-#: judge/admin/interface.py:113 judge/models/contest.py:415
-#: judge/models/contest.py:541 judge/models/profile.py:244
+#: judge/admin/interface.py:113 judge/models/contest.py:416
+#: judge/models/contest.py:542 judge/models/profile.py:244
 #: judge/models/profile.py:268
 msgid "user"
 msgstr ""
@@ -724,7 +724,7 @@ msgstr ""
 msgid "problems"
 msgstr ""
 
-#: judge/models/contest.py:78 judge/models/contest.py:416
+#: judge/models/contest.py:78 judge/models/contest.py:417
 msgid "start time"
 msgstr ""
 
@@ -922,213 +922,213 @@ msgstr ""
 msgid "Number of digits to round points to."
 msgstr ""
 
-#: judge/models/contest.py:394
+#: judge/models/contest.py:395
 msgid "See private contests"
 msgstr ""
 
-#: judge/models/contest.py:395
+#: judge/models/contest.py:396
 msgid "Edit own contests"
 msgstr ""
 
-#: judge/models/contest.py:396
+#: judge/models/contest.py:397
 msgid "Edit all contests"
 msgstr ""
 
-#: judge/models/contest.py:397
+#: judge/models/contest.py:398
 msgid "Clone contest"
 msgstr ""
 
-#: judge/models/contest.py:398 templates/contest/moss.html:74
+#: judge/models/contest.py:399 templates/contest/moss.html:74
 msgid "MOSS contest"
 msgstr ""
 
-#: judge/models/contest.py:399
+#: judge/models/contest.py:400
 msgid "Rate contests"
 msgstr ""
 
-#: judge/models/contest.py:400
+#: judge/models/contest.py:401
 msgid "Contest access codes"
 msgstr ""
 
-#: judge/models/contest.py:401
+#: judge/models/contest.py:402
 msgid "Create private contests"
 msgstr ""
 
-#: judge/models/contest.py:402
+#: judge/models/contest.py:403
 msgid "Change contest visibility"
 msgstr ""
 
-#: judge/models/contest.py:403
+#: judge/models/contest.py:404
 msgid "Edit contest problem label script"
 msgstr ""
 
-#: judge/models/contest.py:404
+#: judge/models/contest.py:405
 msgid "Change lock status of contest"
 msgstr ""
 
-#: judge/models/contest.py:406 judge/models/contest.py:504
-#: judge/models/contest.py:542 judge/models/contest.py:564
+#: judge/models/contest.py:407 judge/models/contest.py:505
+#: judge/models/contest.py:543 judge/models/contest.py:565
 #: judge/models/submission.py:85
 msgid "contest"
 msgstr ""
 
-#: judge/models/contest.py:407
+#: judge/models/contest.py:408
 msgid "contests"
 msgstr ""
 
-#: judge/models/contest.py:414
+#: judge/models/contest.py:415
 msgid "associated contest"
 msgstr ""
 
-#: judge/models/contest.py:417
+#: judge/models/contest.py:418
 msgid "score"
 msgstr ""
 
-#: judge/models/contest.py:418
+#: judge/models/contest.py:419
 msgid "cumulative time"
 msgstr ""
 
-#: judge/models/contest.py:419
+#: judge/models/contest.py:420
 msgid "is disqualified"
 msgstr ""
 
-#: judge/models/contest.py:420
+#: judge/models/contest.py:421
 msgid "Whether this participation is disqualified."
 msgstr ""
 
-#: judge/models/contest.py:421
+#: judge/models/contest.py:422
 msgid "tie-breaking field"
 msgstr ""
 
-#: judge/models/contest.py:422
+#: judge/models/contest.py:423
 msgid "virtual participation id"
 msgstr ""
 
-#: judge/models/contest.py:423
+#: judge/models/contest.py:424
 msgid "0 means non-virtual, otherwise the n-th virtual participation."
 msgstr ""
 
-#: judge/models/contest.py:424
+#: judge/models/contest.py:425
 msgid "contest format specific data"
 msgstr ""
 
-#: judge/models/contest.py:490
+#: judge/models/contest.py:491
 #, python-format
 msgid "%s spectating in %s"
 msgstr ""
 
-#: judge/models/contest.py:492
+#: judge/models/contest.py:493
 #, python-format
 msgid "%s in %s, v%d"
 msgstr ""
 
-#: judge/models/contest.py:493
+#: judge/models/contest.py:494
 #, python-format
 msgid "%s in %s"
 msgstr ""
 
-#: judge/models/contest.py:496
+#: judge/models/contest.py:497
 msgid "contest participation"
 msgstr ""
 
-#: judge/models/contest.py:497
+#: judge/models/contest.py:498
 msgid "contest participations"
 msgstr ""
 
-#: judge/models/contest.py:503 judge/models/contest.py:526
-#: judge/models/contest.py:565 judge/models/problem.py:430
+#: judge/models/contest.py:504 judge/models/contest.py:527
+#: judge/models/contest.py:566 judge/models/problem.py:430
 #: judge/models/problem.py:435 judge/models/problem.py:453
 #: judge/models/problem_data.py:35
 msgid "problem"
 msgstr ""
 
-#: judge/models/contest.py:505 judge/models/contest.py:530
+#: judge/models/contest.py:506 judge/models/contest.py:531
 #: judge/models/problem.py:137
 msgid "points"
 msgstr ""
 
-#: judge/models/contest.py:506
+#: judge/models/contest.py:507
 msgid "partial"
 msgstr ""
 
-#: judge/models/contest.py:507 judge/models/contest.py:531
+#: judge/models/contest.py:508 judge/models/contest.py:532
 msgid "is pretested"
 msgstr ""
 
-#: judge/models/contest.py:508 judge/models/interface.py:43
+#: judge/models/contest.py:509 judge/models/interface.py:43
 msgid "order"
 msgstr ""
 
-#: judge/models/contest.py:509
+#: judge/models/contest.py:510
 msgid "output prefix length override"
 msgstr ""
 
-#: judge/models/contest.py:511
+#: judge/models/contest.py:512
 msgid ""
 "Maximum number of submissions for this problem, or leave blank for no limit."
 msgstr ""
 
-#: judge/models/contest.py:514
+#: judge/models/contest.py:515
 msgid "Why include a problem you can't submit to?"
 msgstr ""
 
-#: judge/models/contest.py:519
+#: judge/models/contest.py:520
 msgid "contest problem"
 msgstr ""
 
-#: judge/models/contest.py:520
+#: judge/models/contest.py:521
 msgid "contest problems"
 msgstr ""
 
-#: judge/models/contest.py:524 judge/models/submission.py:217
+#: judge/models/contest.py:525 judge/models/submission.py:217
 msgid "submission"
 msgstr ""
 
-#: judge/models/contest.py:528 judge/models/contest.py:543
+#: judge/models/contest.py:529 judge/models/contest.py:544
 msgid "participation"
 msgstr ""
 
-#: judge/models/contest.py:532
+#: judge/models/contest.py:533
 msgid "Whether this submission was ran only on pretests."
 msgstr ""
 
-#: judge/models/contest.py:536
+#: judge/models/contest.py:537
 msgid "contest submission"
 msgstr ""
 
-#: judge/models/contest.py:537
+#: judge/models/contest.py:538
 msgid "contest submissions"
 msgstr ""
 
-#: judge/models/contest.py:545
+#: judge/models/contest.py:546
 msgid "rank"
 msgstr ""
 
-#: judge/models/contest.py:546
+#: judge/models/contest.py:547
 msgid "rating"
 msgstr ""
 
-#: judge/models/contest.py:547
+#: judge/models/contest.py:548
 msgid "volatility"
 msgstr ""
 
-#: judge/models/contest.py:548
+#: judge/models/contest.py:549
 msgid "last rated"
 msgstr ""
 
-#: judge/models/contest.py:552
+#: judge/models/contest.py:553
 msgid "contest rating"
 msgstr ""
 
-#: judge/models/contest.py:553
+#: judge/models/contest.py:554
 msgid "contest ratings"
 msgstr ""
 
-#: judge/models/contest.py:572
+#: judge/models/contest.py:573
 msgid "contest moss result"
 msgstr ""
 
-#: judge/models/contest.py:573
+#: judge/models/contest.py:574
 msgid "contest moss results"
 msgstr ""
 
@@ -1744,7 +1744,7 @@ msgstr ""
 msgid "Problem Setter"
 msgstr ""
 
-#: judge/models/profile.py:105 templates/base.html:250
+#: judge/models/profile.py:105 templates/base.html:259
 #: templates/comments/list.html:99 templates/contest/contest-list-tabs.html:24
 #: templates/contest/ranking-table.html:49
 #: templates/problem/problem-list-tabs.html:6
@@ -3133,7 +3133,7 @@ msgid "Updated on site"
 msgstr ""
 
 #: judge/views/user.py:399 templates/admin/auth/user/change_form.html:14
-#: templates/admin/auth/user/change_form.html:17 templates/base.html:252
+#: templates/admin/auth/user/change_form.html:17 templates/base.html:261
 #: templates/user/user-tabs.html:16
 msgid "Edit profile"
 msgstr ""
@@ -3206,37 +3206,37 @@ msgstr ""
 
 #: templates/admin/judge/submission/change_form.html:14
 #: templates/admin/judge/submission/change_form.html:17
-#: templates/submission/source.html:34 templates/submission/status.html:80
+#: templates/submission/source.html:38 templates/submission/status.html:80
 msgid "Rejudge"
 msgstr ""
 
-#: templates/base.html:244
+#: templates/base.html:253
 #, python-format
 msgid "Hello, <b>%(username)s</b>."
 msgstr ""
 
-#: templates/base.html:259
+#: templates/base.html:268
 msgid "Log out"
 msgstr ""
 
-#: templates/base.html:268
+#: templates/base.html:277
 #: templates/registration/password_reset_complete.html:4
 msgid "Log in"
 msgstr ""
 
-#: templates/base.html:269 templates/registration/registration_form.html:175
+#: templates/base.html:278 templates/registration/registration_form.html:175
 msgid "or"
 msgstr ""
 
-#: templates/base.html:270
+#: templates/base.html:279
 msgid "Sign up"
 msgstr ""
 
-#: templates/base.html:281
+#: templates/base.html:290
 msgid "spectating"
 msgstr ""
 
-#: templates/base.html:294
+#: templates/base.html:303
 msgid "This site works best with JavaScript enabled."
 msgstr ""
 
@@ -3419,6 +3419,26 @@ msgstr ""
 msgid "Join Contest"
 msgstr ""
 
+#: templates/contest/announcement.html:9 templates/contest/list.html:61
+msgid "hidden"
+msgstr ""
+
+#: templates/contest/announcement.html:22 templates/contest/list.html:74
+msgid "private"
+msgstr ""
+
+#: templates/contest/announcement.html:27 templates/contest/list.html:79
+msgid "rated"
+msgstr ""
+
+#: templates/contest/announcement.html:63
+msgid "Contest announcement"
+msgstr ""
+
+#: templates/contest/announcement.html:79
+msgid "Close"
+msgstr ""
+
 #: templates/contest/calendar.html:12
 msgid "Sunday"
 msgstr ""
@@ -3506,7 +3526,7 @@ msgstr ""
 msgid "Leave contest"
 msgstr ""
 
-#: templates/contest/contest-tabs.html:45 templates/contest/list.html:294
+#: templates/contest/contest-tabs.html:45 templates/contest/list.html:290
 msgid "Virtual join"
 msgstr ""
 
@@ -3554,8 +3574,8 @@ msgstr ""
 msgid "AC Rate"
 msgstr ""
 
-#: templates/contest/contest.html:86 templates/contest/list.html:152
-#: templates/contest/list.html:194 templates/contest/list.html:271
+#: templates/contest/contest.html:86 templates/contest/list.html:148
+#: templates/contest/list.html:190 templates/contest/list.html:267
 #: templates/problem/list.html:211 templates/problem/list.html:237
 msgid "Users"
 msgstr ""
@@ -3568,58 +3588,46 @@ msgstr ""
 msgid "Editorial"
 msgstr ""
 
-#: templates/contest/list.html:31 templates/contest/media-js.html:9
+#: templates/contest/list.html:27 templates/contest/media-js.html:9
 msgid "Are you sure you want to join?"
 msgstr ""
 
-#: templates/contest/list.html:32
+#: templates/contest/list.html:28
 msgid ""
 "Joining a contest for the first time starts your timer, after which it "
 "becomes unstoppable."
 msgstr ""
 
-#: templates/contest/list.html:65
-msgid "hidden"
-msgstr ""
-
-#: templates/contest/list.html:78
-msgid "private"
-msgstr ""
-
-#: templates/contest/list.html:83
-msgid "rated"
-msgstr ""
-
-#: templates/contest/list.html:131
+#: templates/contest/list.html:127
 msgid "Spectate"
 msgstr ""
 
-#: templates/contest/list.html:137
+#: templates/contest/list.html:133
 msgid "Join"
 msgstr ""
 
-#: templates/contest/list.html:147
+#: templates/contest/list.html:143
 msgid "Active Contests"
 msgstr ""
 
-#: templates/contest/list.html:151 templates/contest/list.html:193
-#: templates/contest/list.html:231 templates/contest/list.html:268
+#: templates/contest/list.html:147 templates/contest/list.html:189
+#: templates/contest/list.html:227 templates/contest/list.html:264
 msgid "Contest"
 msgstr ""
 
-#: templates/contest/list.html:189
+#: templates/contest/list.html:185
 msgid "Ongoing Contests"
 msgstr ""
 
-#: templates/contest/list.html:226
+#: templates/contest/list.html:222
 msgid "Upcoming Contests"
 msgstr ""
 
-#: templates/contest/list.html:254
+#: templates/contest/list.html:250
 msgid "There are no scheduled contests at this time."
 msgstr ""
 
-#: templates/contest/list.html:260
+#: templates/contest/list.html:256
 msgid "Past Contests"
 msgstr ""
 
@@ -3974,7 +3982,7 @@ msgstr ""
 msgid "Add new case"
 msgstr ""
 
-#: templates/problem/data.html:485 templates/problem/submit.html:270
+#: templates/problem/data.html:485 templates/problem/submit.html:273
 msgid "Submit!"
 msgstr ""
 
@@ -4255,29 +4263,29 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: templates/problem/submit.html:129
+#: templates/problem/submit.html:131
 msgid "Your source code must contain at most 65536 characters."
 msgstr ""
 
-#: templates/problem/submit.html:216
+#: templates/problem/submit.html:219
 #, python-format
 msgid ""
 "<b>Warning!</b> Your default language, <b>%(default_language)s</b>, is "
 "unavailable for this problem and has been deselected."
 msgstr ""
 
-#: templates/problem/submit.html:227
+#: templates/problem/submit.html:230
 #, python-format
 msgid "You have %(left)s submission left"
 msgid_plural "You have %(left)s submissions left"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/problem/submit.html:232
+#: templates/problem/submit.html:235
 msgid "You have 0 submissions left"
 msgstr ""
 
-#: templates/problem/submit.html:266
+#: templates/problem/submit.html:269
 msgid "No judge is available for this problem."
 msgstr ""
 
@@ -4627,15 +4635,15 @@ msgstr ""
 msgid "admin"
 msgstr ""
 
-#: templates/submission/source.html:25
+#: templates/submission/source.html:29
 msgid "View status"
 msgstr ""
 
-#: templates/submission/source.html:26
+#: templates/submission/source.html:30
 msgid "View raw source"
 msgstr ""
 
-#: templates/submission/source.html:28 templates/submission/status.html:74
+#: templates/submission/source.html:32 templates/submission/status.html:74
 msgid "Resubmit"
 msgstr ""
 
