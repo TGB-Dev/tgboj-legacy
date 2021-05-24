@@ -7,8 +7,8 @@ from django.utils.translation import ugettext as _
 from django.views.generic import ListView
 
 from judge.comments import CommentedDetailView
-from judge.models import BlogPost, Comment, Contest, Language, Problem, ProblemClarification, Profile, Submission, \
-    Ticket, ProblemType, ProblemGroup
+from judge.models import BlogPost, Comment, Contest, Language, Problem, ProblemClarification, ProblemGroup, ProblemType, \
+    Profile, Submission, Ticket
 from judge.utils.cachedict import CacheDict
 from judge.utils.diggpaginator import DiggPaginator
 from judge.utils.problems import user_completed_ids
