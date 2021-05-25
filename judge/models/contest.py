@@ -145,6 +145,7 @@ class Contest(models.Model):
     points_precision = models.IntegerField(verbose_name=_('precision points'), default=3,
                                            validators=[MinValueValidator(0), MaxValueValidator(10)],
                                            help_text=_('Number of digits to round points to.'))
+
     @cached_property
     def format_class(self):
         return contest_format.formats[self.format_name]
