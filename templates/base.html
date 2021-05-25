@@ -103,6 +103,13 @@
                 $('.time-remaining').each(function () {
                     count_down($(this));
                 });
+                $('.contest-block').each(function() {
+                    if (localStorage.getItem(this.id)) this.remove();
+                    else {
+                        localStorage.setItem(this.id, true);
+                    }
+                });
+                if ($('.contest-block').length) $('#announcement-bg').css({'visibility': 'visible'})
             });
         </script>
     {% endcompress %}

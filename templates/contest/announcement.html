@@ -64,7 +64,7 @@
             <div class="sidebox-content">
                 <div class="contest-list">
                     {% for contest in new_contests %}
-                        <div class="contest-block">
+                        <div class="contest-block" id="{{ contest.key }}">
                             {{ contest_head(contest) }}
                             {% if contest.start_time %}
                                 <br>
