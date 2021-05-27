@@ -54,9 +54,8 @@
                 var reader = new FileReader;
                 reader.readAsText(file);
                 reader.onload = function() {
-                    // Add language detection here
-
-                    location.href = location.protocol + '//' + location.host + location.pathname + '/submit/?code=' + btoa(reader.result);
+                    localStorage.setItem('pending_code', reader.result);
+                    $('a.unselectable.button.full')[0].click()
                 }
             });
         });
