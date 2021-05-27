@@ -95,7 +95,14 @@
                 });
 
                 $('#ace_source').on('ace_load', function (e, editor) {
-                    update_language_template();
+                    // Import file
+                    var code = localStorage.getItem('pending_code');
+                    if (code) {
+                        $('#id_source').val(code);
+                        window.ace_source.getSession().setValue(code);
+                        localStorage.setItem('pending_code', '');
+                    }
+                    else update_language_template();
                     editor.commands.addCommand({
                         name: 'save',
                         bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
@@ -107,17 +114,6 @@
                     editor.setFontSize(14);
                     editor.setPrintMarginColumn(100);
                     editor.focus();
-
-                    // Import file
-                    var code = localStorage.getItem('pending_code');
-                    if (code) {
-                        $('#id_source').val(code);
-                        window.previous_template = code;
-                        window.ace_source.getSession().setValue(code);
-                        localStorage.setItem('submit:' + $('#id_language').val(), code);
-                        localStorage.setItem('pending_code', '');
-                        location.reload();
-                    }
                 });
 
                 $(window).resize(function () {
