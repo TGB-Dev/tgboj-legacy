@@ -59,7 +59,7 @@
         <link rel="stylesheet" type="text/css" href="{{ static('libs/select2/select2.css') }}">
     {% endcompress %}
     <link rel="canonical"
-          href="{{ DMOJ_SCHEME }}://{{ DMOJ_CANONICAL|default(site.domain) }}{{ request.get_full_path() }}">
+          href="https://oj.giftedbat.com">
     {% if request.user.is_impersonate %}
         <style>
             #nav-container {
@@ -238,7 +238,7 @@
                 </li>
             {% endfor %}
             <li>
-                <button id="lang-toggle" onclick="toggleLanguage()">
+                <button id="lang-toggle" name="lang-toggle" onclick="toggleLanguage()">
                     {% if LANGUAGE_CODE == 'vi' %}
                         <div id="lang-vi"></div>
                         <div id="lang-en"></div>
@@ -255,7 +255,7 @@
                     <li>
                         <a href="{{ url('user_page') }}">
                             <span>
-                                <img src="{{ gravatar(request.user, 32) }}" height="36" width="36">{# -#}
+                                <img src="{{ gravatar(request.user, 32) }}" height="36" width="36" alt="avatar">{# -#}
                                 <span>
                                     {%- trans username=request.user.username -%}
                                         Hello, <b>{{ username }}</b>.
