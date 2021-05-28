@@ -59,7 +59,7 @@
         <link rel="stylesheet" type="text/css" href="{{ static('libs/select2/select2.css') }}">
     {% endcompress %}
     <link rel="canonical"
-          href="https://oj.giftedbat.com">
+          href="{{ DMOJ_SCHEME }}://{{ DMOJ_CANONICAL|default(site.domain) }}{{ request.get_full_path() }}">
     {% if request.user.is_impersonate %}
         <style>
             #nav-container {
