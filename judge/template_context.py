@@ -5,6 +5,9 @@ from django.contrib.auth.context_processors import PermWrapper
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.cache import cache
 from django.utils.functional import SimpleLazyObject, new_method_proxy
+from django.utils import timezone
+
+from judge.models import Contest
 
 from judge.utils.caniuse import CanIUse, SUPPORT
 from .models import MiscConfig, NavigationBar, Profile
@@ -120,3 +123,13 @@ def math_setting(request):
     if engine == 'auto':
         engine = 'mml' if bool(settings.MATHOID_URL) and caniuse.mathml == SUPPORT else 'jax'
     return {'MATH_ENGINE': engine, 'REQUIRE_JAX': engine == 'jax', 'caniuse': caniuse}
+
+
+def get_new_contests(request):
+    now = timezone.now()
+    visible_contests = Contest.get_visible_contests(request.user).filter(is_visible=True) \
+                              .order_by('start_time')
+
+    contests = visible_contests.filter(start_time__gt=now).all()
+
+    return {'new_contests': contests}
