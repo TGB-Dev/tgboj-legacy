@@ -4,11 +4,10 @@ from django.conf import settings
 from django.contrib.auth.context_processors import PermWrapper
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.cache import cache
-from django.utils.functional import SimpleLazyObject, new_method_proxy
 from django.utils import timezone
+from django.utils.functional import SimpleLazyObject, new_method_proxy
 
 from judge.models import Contest
-
 from judge.utils.caniuse import CanIUse, SUPPORT
 from .models import MiscConfig, NavigationBar, Profile
 
