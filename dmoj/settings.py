@@ -252,6 +252,7 @@ INSTALLED_APPS += (
     'impersonate',
     'django_jinja',
     'martor',
+    'adminsortable2',
 )
 
 MIDDLEWARE = (
@@ -448,7 +449,7 @@ MARKDOWN_STYLES = {
 MARTOR_ENABLE_CONFIGS = {
     'imgur': 'true',
     'mention': 'true',
-    'jquery': 'true',
+    'jquery': 'false',
     'living': 'false',
     'spellcheck': 'false',
     'hljs': 'false',

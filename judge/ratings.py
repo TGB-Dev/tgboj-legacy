@@ -153,13 +153,11 @@ def rate_contest(contest):
     ratings = [Rating(user_id=i, contest=contest, rating=r, volatility=v, last_rated=now, participation_id=p, rank=z)
                for i, p, r, v, z in zip(user_ids, participation_ids, rating, volatility, ranking)]
     with transaction.atomic():
-        Rating.objects.filter(contest=contest).delete()
         Rating.objects.bulk_create(ratings)
 
         Profile.objects.filter(contest_history__contest=contest, contest_history__virtual=0).update(
             rating=Subquery(Rating.objects.filter(user=OuterRef('id'))
                             .order_by('-contest__end_time').values('rating')[:1]))
-    return old_rating, old_volatility, ranking, times_ranked, rating, volatility
 
 
 RATING_LEVELS = ['Newbie', 'Amateur', 'Expert', 'Candidate Master', 'Master', 'Grandmaster', 'Target']
