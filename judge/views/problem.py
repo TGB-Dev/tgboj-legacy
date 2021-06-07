@@ -219,6 +219,7 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
                                           context['description'], 'problem')
         context['meta_description'] = self.object.summary or metadata[0]
         context['og_image'] = self.object.og_image or metadata[1]
+        context['extensions'] = str([list(i) for i in list(Language.objects.values_list('id', 'extension'))])
         return context
 
 

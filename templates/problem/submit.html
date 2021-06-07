@@ -99,8 +99,10 @@
                     var code = localStorage.getItem('pending_code');
                     if (code) {
                         $('#id_source').val(code);
-                        window.ace_source.getSession().setValue(code);
+                        $('#id_language').val(localStorage.getItem('pending_language'));
                         localStorage.setItem('pending_code', '');
+                        localStorage.setItem('pending_language', '');
+                        $('#problem_submit').submit();
                     }
                     else update_language_template();
                     editor.commands.addCommand({
