@@ -16,11 +16,30 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-weight: normal;
+        font-weight: 600;
         color: #111;
         margin-bottom: 0.75em;
         padding: 0;
         background: 0;
+
+        a.fa-link {
+            font-size: 0.8em;
+            float: left;
+            padding-right: 4px;
+            margin-left: -28px;
+            margin-top: 6px;
+            opacity: 0;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            a.fa-link {
+                opacity: 1;
+            }
+        }
     }
 
     h3, h4, h5, h6 {
