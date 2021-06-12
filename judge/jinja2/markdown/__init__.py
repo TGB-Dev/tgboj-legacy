@@ -152,12 +152,14 @@ def fragment_tree_to_str(tree):
 
 def add_anchor(s):
     result = ''
-    headers = re.split('(<h[1-6][^>]*?>.*?<\/h[1-6]>)', s)
+    headers = re.split(r'(<h[1-6][^>]*?>.*?<\/h[1-6]>)', s)
     for header in headers:
-        tokens = re.findall('<(h[1-6][^>]*?)>(.*?)(<\/h[1-6]>)', header)
+        tokens = re.findall(r'<(h[1-6][^>]*?)>(.*?)(<\/h[1-6]>)', header)
         if len(tokens) > 0:
             tokens = tokens[0]
-            result += '<' + tokens[0] + ' id="' + slugify(tokens[1]) + '">' + '<a class="fa fa-link" href="#' + slugify(tokens[1]) + '"></a>' + tokens[1] + tokens[2]
+            result += '<' + tokens[0] + ' id="' + slugify(tokens[1]) \
+                + '">' + '<a class="fa fa-link" href="#' + slugify(tokens[1]) \
+                + '"></a>' + tokens[1] + tokens[2]
         else:
             result += header
 
@@ -170,8 +172,8 @@ def add_toc(s):
 
     toc = ''
 
-    for header in re.findall('#(.*)', s):
-        toc += '  ' *  (len(header.split('#')) - 1) \
+    for header in re.findall(r'#(.*)', s):
+        toc += '  ' * (len(header.split('#')) - 1) \
             + '* [' + header.replace('#', '') \
             + '](#' + slugify(header.replace('#', '')) + ')\n'
         print(toc)
@@ -179,7 +181,7 @@ def add_toc(s):
     s.replace('[TOC]', toc)
 
     return s.replace('[TOC]', toc)
-    
+
 
 @registry.filter
 def markdown(value, style, math_engine=None, lazy_load=False):
