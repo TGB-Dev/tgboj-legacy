@@ -9,13 +9,13 @@ from django.conf import settings
 from jinja2 import Markup
 from lxml import html
 from lxml.etree import ParserError, XMLSyntaxError
+from slugify import slugify
 
 from judge.highlight_code import highlight_code
 from judge.jinja2.markdown.lazy_load import lazy_load as lazy_load_processor
 from judge.jinja2.markdown.math import MathInlineGrammar, MathInlineLexer, MathRenderer
 from judge.utils.camo import client as camo_client
 from judge.utils.texoid import TEXOID_ENABLED, TexoidRenderer
-from slugify import slugify
 from .bleach_whitelist import all_styles, mathml_attrs, mathml_tags
 from .. import registry
 
@@ -155,30 +155,31 @@ def add_anchor(s):
     headers = re.split('(<h[1-6][^>]*?>.*?<\/h[1-6]>)', s)
     for header in headers:
         tokens = re.findall('<(h[1-6][^>]*?)>(.*?)(<\/h[1-6]>)', header)
-        if len(tokens) > 0:          
+        if len(tokens) > 0:
             tokens = tokens[0]
             result += '<' + tokens[0] + ' id="' + slugify(tokens[1]) + '">' + '<a class="fa fa-link" href="#' + slugify(tokens[1]) + '"></a>' + tokens[1] + tokens[2]
         else:
             result += header
-    
+
     return result
-        
+
 
 def add_toc(s):
-    if not '[TOC]' in s:
+    if '[TOC]' not in s:
         return s
-    
+
     toc = ''
 
     for header in re.findall('#(.*)', s):
-        toc += '  ' *  (len(header.split('#')) - 1) + '* [' + header.replace('#', '') + '](#' + slugify(header.replace('#', '')) + ')\n'
+        toc += '  ' *  (len(header.split('#')) - 1) \
+            + '* [' + header.replace('#', '') \
+            + '](#' + slugify(header.replace('#', '')) + ')\n'
         print(toc)
 
     s.replace('[TOC]', toc)
 
     return s.replace('[TOC]', toc)
     
-
 
 @registry.filter
 def markdown(value, style, math_engine=None, lazy_load=False):
@@ -201,9 +202,7 @@ def markdown(value, style, math_engine=None, lazy_load=False):
                                 parse_block_html=1, parse_inline_html=1)
     result = markdown(add_toc(value))
 
-    #print(result)
-
-    result = add_anchor(result);
+    result = add_anchor(result)
 
     if post_processors:
         tree = fragments_to_tree(result)
