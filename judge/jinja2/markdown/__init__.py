@@ -150,37 +150,37 @@ def fragment_tree_to_str(tree):
     return html.tostring(tree, encoding='unicode')[len('<div>'):-len('</div>')]
 
 
-def add_anchor(s):
+def add_anchor_and_toc(s):
     result = ''
+    toc = ''
+    level = 2
     headers = re.split(r'(<h[1-6][^>]*?>.*?<\/h[1-6]>)', s)
     for header in headers:
-        tokens = re.findall(r'<(h[1-6][^>]*?)>(.*?)(<\/h[1-6]>)', header)
+        tokens = re.findall(r'<h([1-6][^>]*?)>(.*?)(<\/h[1-6]>)', header)
         if len(tokens) > 0:
             tokens = tokens[0]
-            result += '<' + tokens[0] + ' id="' + slugify(tokens[1]) \
+
+            result += '<h' + tokens[0] + ' id="' + slugify(tokens[1]) \
                 + '">' + '<a class="fa fa-link" href="#' + slugify(tokens[1]) \
                 + '"></a>' + tokens[1] + tokens[2]
+
+            new_level = int(tokens[0])
+            if new_level > level:
+                toc += '<ul>' * (new_level - level)
+            elif new_level < level:
+                toc += '</ul>' * (level - new_level)
+
+            level = new_level
+
+            toc += '<li><a href="#' + slugify(tokens[1]) +'">' \
+                + tokens[1] + '</a></li>'
         else:
             result += header
 
-    return result
+    if level > 2:
+        toc += '</ul>' * (level - 2)
 
-
-def add_toc(s):
-    if '[TOC]' not in s:
-        return s
-
-    toc = ''
-
-    for header in re.findall(r'#(.*)', s):
-        toc += '  ' * (len(header.split('#')) - 1) \
-            + '* [' + header.replace('#', '') \
-            + '](#' + slugify(header.replace('#', '')) + ')\n'
-        print(toc)
-
-    s.replace('[TOC]', toc)
-
-    return s.replace('[TOC]', toc)
+    return result.replace('[TOC]', toc)
 
 
 @registry.filter
@@ -202,9 +202,9 @@ def markdown(value, style, math_engine=None, lazy_load=False):
                                math=math and math_engine is not None, math_engine=math_engine)
     markdown = mistune.Markdown(renderer=renderer, inline=AwesomeInlineLexer,
                                 parse_block_html=1, parse_inline_html=1)
-    result = markdown(add_toc(value))
+    result = markdown(value)
 
-    result = add_anchor(result)
+    result = add_anchor_and_toc(result)
 
     if post_processors:
         tree = fragments_to_tree(result)
