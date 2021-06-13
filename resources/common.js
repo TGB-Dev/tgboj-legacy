@@ -368,19 +368,4 @@ $(function() {
             });
         }
     });
-  
-    function UpdateHash() {
-        var new_hash = ""
-  
-        $("a[href*='#']:not([href='#'])").each(function() {
-            var hash = this.hash;
-            var section = $(hash);
-  
-            if (hash && ~~section.offset().top <= $('html, body').scrollTop()) new_hash = hash;
-        });
-        history.replaceState({}, "", new_hash);
-    }
-  
-    $(window).scroll(UpdateHash);
-    $(window).resize(UpdateHash);  
 });
