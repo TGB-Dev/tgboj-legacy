@@ -172,7 +172,7 @@ def add_anchor_and_toc(s):
 
             level = new_level
 
-            toc += '<li><a href="#' + slugify(tokens[1]) +'">' \
+            toc += '<li><a href="#' + slugify(tokens[1]) + '">' \
                 + tokens[1] + '</a></li>'
         else:
             result += header
