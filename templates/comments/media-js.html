@@ -208,17 +208,6 @@
 
             $('votes-link').find('a[data-featherlight]').featherlight();
 
-            var $root = $('html, body');
-            $comments.find('a.comment-link').click(function () {
-                var href = $.attr(this, 'href');
-                $root.animate({
-                    scrollTop: $(href).offset().top
-                }, 500, function () {
-                    window.location.hash = href;
-                });
-                return false;
-            });
-
             $('img.unveil').unveil(200);
 
             window.comment_show_content = function (comment_id) {

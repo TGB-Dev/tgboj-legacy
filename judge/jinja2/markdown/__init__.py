@@ -160,9 +160,9 @@ def add_anchor_and_toc(s):
         if len(tokens) > 0:
             tokens = tokens[0]
 
-            result += '<h' + tokens[0] + ' id="' + slugify(tokens[1]) \
-                + '">' + '<a class="fa fa-link" href="#' + slugify(tokens[1]) \
-                + '"></a>' + tokens[1] + tokens[2]
+            result += '<h' + tokens[0] + ' class="linkable" id="' \
+                + slugify(tokens[1]) + '">' + '<a class="fa fa-link" href="#' \
+                + slugify(tokens[1]) + '"></a>' + tokens[1] + tokens[2]
 
             new_level = int(tokens[0])
             if new_level > level:

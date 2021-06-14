@@ -777,3 +777,11 @@ math {
         }
     }
 }
+
+.linkable:before {
+    display: block;
+    content: " ";
+    margin-top: -64px;
+    height: 64px;
+    visibility: hidden;
+}
