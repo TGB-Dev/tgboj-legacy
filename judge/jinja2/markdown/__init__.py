@@ -153,6 +153,7 @@ def fragment_tree_to_str(tree):
 def add_anchor_and_toc(s):
     result = ''
     toc = ''
+    repeated = {}
     level = 2
     headers = re.split(r'(<h[1-6][^>]*?>.*?<\/h[1-6]>)', s)
     for header in headers:
@@ -160,9 +161,17 @@ def add_anchor_and_toc(s):
         if len(tokens) > 0:
             tokens = tokens[0]
 
+            title = slugify(tokens[1])
+
+            if title in repeated:
+                repeated[title] = repeated[title] + 1
+                title += '-' + str(repeated[title])
+            else:
+                repeated[title] = 0
+
             result += '<h' + tokens[0] + ' class="linkable" id="' \
-                + slugify(tokens[1]) + '">' + '<a class="fa fa-link" href="#' \
-                + slugify(tokens[1]) + '"></a>' + tokens[1] + tokens[2]
+                + title + '">' + '<a class="fa fa-link" href="#' \
+                + title + '"></a>' + tokens[1] + tokens[2]
 
             new_level = int(tokens[0])
             if new_level > level:
@@ -172,7 +181,7 @@ def add_anchor_and_toc(s):
 
             level = new_level
 
-            toc += '<li><a href="#' + slugify(tokens[1]) + '">' \
+            toc += '<li><a href="#' + title + '">' \
                 + tokens[1] + '</a></li>'
         else:
             result += header
