@@ -377,6 +377,7 @@ BLEACH_USER_SAFE_TAGS = [
     'img', 'audio', 'video', 'source',
     'a',
     'style', 'noscript', 'center',
+    'details', 'summary'
 ]
 
 BLEACH_USER_SAFE_ATTRS = {

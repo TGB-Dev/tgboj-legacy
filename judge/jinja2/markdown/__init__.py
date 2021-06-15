@@ -150,6 +150,12 @@ def fragment_tree_to_str(tree):
     return html.tostring(tree, encoding='unicode')[len('<div>'):-len('</div>')]
 
 
+def add_details(s):
+    s = re.sub(r'<p>&lt;!(.*?)<\/p>', r'<details><summary>\1</summary>', s)
+    print(s)
+    return s.replace('<p>!&gt;</p>', '</details>')
+
+
 def add_anchor_and_toc(s):
     result = ''
     toc = ''
@@ -214,6 +220,8 @@ def markdown(value, style, math_engine=None, lazy_load=False):
     result = markdown(value)
 
     result = add_anchor_and_toc(result)
+
+    result = add_details(result)
 
     if post_processors:
         tree = fragments_to_tree(result)
